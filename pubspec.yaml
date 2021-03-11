@@ -24,10 +24,10 @@ flutter:
   fonts:
   - family: Mandatory
     fonts:
-      - asset: assets/mandatory.ttf
+      - asset: assets/fonts/mandatory.ttf
   - family: Fe
     fonts:
-      - asset: assets/fe.ttf
+      - asset: assets/fonts/fe.ttf
   - family: Xanh
     fonts:
-      - asset: assets/XanhMono-Regular.ttf
+      - asset: assets/fonts/XanhMono-Regular.ttf

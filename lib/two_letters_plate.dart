@@ -43,7 +43,7 @@ class TwoLettersPlate extends StatelessWidget {
 
   /// Relation between the height of the locality header container and the entire
   /// plate height.
-  static const double _localityContainerHeightRelation = 36 / 215;
+  static const double _localityContainerHeightRelation = 42 / 215;
 
   /// Relation between the height of the locality header text font and the entire
   /// plate height.
@@ -51,7 +51,7 @@ class TwoLettersPlate extends StatelessWidget {
 
   /// The relation between the height of the top border of the main letters and
   /// the entire plate height.
-  static const double _lettersBorderTop = 6 / 215;
+  static const double _lettersBorderTop = 0 / 215;
 
   /// Relation between the height of the letters of the license plate and the entire
   /// license plate height.
