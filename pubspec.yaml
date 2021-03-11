@@ -1,8 +1,7 @@
 name: brazil_license_plate_drawing
 description: Draws brazilian cars' license plate on screen.
 version: 0.0.1
-author: Thad Carnevalli
-homepage: 
+homepage: https://github.com/carnevalli/brazil_license_plate_drawing
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
