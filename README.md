@@ -23,7 +23,7 @@ import 'package:brazil_license_plate_drawing/brazil_license_plate_drawing.dart';
 ## Usage
 
 ### Mercosul - Particular/Private Vehicle
-![Brazil Mercosul Particular License Plate](/resources/docs/images/mercosul-particular.png)
+![Brazil Mercosul Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/mercosul-particular.png)
 ```dart
 MercosulPlate(
     'AVG0A33',
@@ -33,7 +33,7 @@ MercosulPlate(
 ```
 
 ### Mercosul / Commercial Vehicle
-![Brazil Mercosul Commercial License Plate](/resources/docs/images/mercosul-commercial.png)
+![Brazil Mercosul Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/mercosul-commercial.png)
 ```dart
 MercosulPlate(
     'AVG0A33',
@@ -43,7 +43,7 @@ MercosulPlate(
 ```
 
 ### Three Letters - Particular/Private Vehicle
-![Brazil Three Letters Particular License Plate](/resources/docs/images/3l-particular.png)
+![Brazil Three Letters Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/3l-particular.png)
 ```dart
 ThreeLettersPlate(
     'AVG0033',
@@ -55,7 +55,7 @@ ThreeLettersPlate(
 ```
 
 ### Three Letters - Commercial Vehicle
-![Brazil Three Letters Commercial License Plate](/resources/docs/images/3l-commercial.png)
+![Brazil Three Letters Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/3l-commercial.png)
 ```dart
 ThreeLettersPlate(
     'AVG0033',
@@ -67,7 +67,7 @@ ThreeLettersPlate(
 ```
 
 ### Two Letters - Particular/Private Vehicle
-![Brazil Two Letters Particular License Plate](/resources/docs/images/2l-particular.png)
+![Brazil Two Letters Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/2l-particular.png)
 ```dart
 TwoLettersPlate(
     'AV0033',
@@ -79,7 +79,7 @@ TwoLettersPlate(
 ```
 
 ### Two Letters - Commercial
-![Brazil Two Letters Commercial License Plate](/resources/docs/images/2l-commercial.png)
+![Brazil Two Letters Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/2l-commercial.png)
 ```dart
 TwoLettersPlate(
     'AV0033',
@@ -91,7 +91,7 @@ TwoLettersPlate(
 ```
 
 ### Compact Version
-![Brazil Three Letters Particular License Plate](/resources/docs/images/3l-compact.png)
+![Brazil Three Letters Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/3l-compact.png)
 
 Without the locality header. Available for ```TwoLettersPlate``` and ```ThreeLettersPlate```.
 
