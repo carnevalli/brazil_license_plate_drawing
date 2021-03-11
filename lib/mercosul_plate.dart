@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_zoom_on_pinch/p/brazil_plate_category.dart';
+import 'package:image_zoom_on_pinch/p/plate_color_set.dart';
 
 class MercosulPlate extends StatelessWidget {
   /// The letters and numbers drawn in the licence plate
@@ -12,6 +14,9 @@ class MercosulPlate extends StatelessWidget {
   /// The height that the whole widget will take. If left null, then the original
   /// proportion factor will be used to calculate this value from the width.
   final double? height;
+
+  /// The plate's category which determines the default color set
+  final BrazilPlateCategory category;
 
   /// The string that represents the text which will be positioned at the top
   /// of the licence plate, generaly the name of the country.
@@ -60,10 +65,22 @@ class MercosulPlate extends StatelessWidget {
 
   /// Relation between the height of the letters of the license plate and the entire
   /// license plate height.
-  static const double _lettersHeightRelation = 124 / 235;
+  static const double _lettersHeightRelation = 130 / 235;
   // Default plate width if neither width or height values were provided for the
   // class constructor
   static const double _defaultWidth = 300;
+
+  /// Default color sets
+  static final Map<BrazilPlateCategory, PlateColorSet> _colorSets = {
+    BrazilPlateCategory.COMMERCIAL: PlateColorSet(
+        backgroundColor: Colors.white,
+        borderColor: Colors.red,
+        lettersCollor: Colors.red),
+    BrazilPlateCategory.PRIVATE: PlateColorSet(
+        backgroundColor: Colors.white,
+        borderColor: Colors.black,
+        lettersCollor: Colors.black),
+  };
 
   /// Evaluates the width value that will be used to draw the widget.
   /// If a value is passed to the constructor, then this value will be used.
@@ -102,9 +119,10 @@ class MercosulPlate extends StatelessWidget {
   /// If a value is provided for these two properties, then the original
   /// aspect ratio will not be take in account.
   /// If neither are provided, the value of _defaultWidth will be used.
-  MercosulPlate(this.plate,
+  const MercosulPlate(this.plate,
       {this.width,
       this.height,
+      this.category = BrazilPlateCategory.PRIVATE,
       this.countryText = 'BRASIL',
       this.countryAcronymLetters = 'BR',
       this.countryFlagAsset = 'brazil.png',
@@ -135,14 +153,14 @@ class MercosulPlate extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
           borderRadius: BorderRadius.circular(15 * (realWidth / 500)),
-          color: Colors.black,
+          color: _colorSets[category]?.borderColor,
         ),
-        width: width,
-        height: height,
+        width: realWidth,
+        height: realHeight,
         padding: EdgeInsets.fromLTRB(
             realWidth * _leftBorderRelation,
             realHeight * _verticalBorderRelation,
@@ -156,7 +174,7 @@ class MercosulPlate extends StatelessWidget {
   Widget _internalWrapper({required Widget child}) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: _colorSets[category]?.backgroundColor,
       ),
       child: Stack(
         children: [
@@ -166,7 +184,7 @@ class MercosulPlate extends StatelessWidget {
             child: Text(countryAcronymLetters.toUpperCase(),
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
-                  fontSize: 60 * (realWidth / 1000),
+                  fontSize: 50 * (realWidth / 1000),
                 )),
           ),
           child,
@@ -235,16 +253,13 @@ class MercosulPlate extends StatelessWidget {
 
   /// Draws the area in which will be printed the main license plate characters.
   Widget _charactersContent() {
-    final String letters = plate.substring(0, 3);
-    final String numbers = plate.substring(3, 7);
     return Container(
       height: realHeight * _lettersHeightRelation,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _getPlateChars(letters, realHeight * _lettersHeightRelation),
-          _getPlateChars(numbers, realHeight * _lettersHeightRelation),
+          _getPlateChars(plate, realHeight * _lettersHeightRelation),
         ],
       ),
     );
@@ -255,11 +270,10 @@ class MercosulPlate extends StatelessWidget {
     return Text(
       chars.toUpperCase(),
       style: TextStyle(
-        height: 0.45,
         fontSize: fontSize,
-        letterSpacing: 4 * (fontSize / 98),
+        letterSpacing: 2 * (fontSize / 98),
         fontFamily: 'fe',
-        color: Colors.black,
+        color: _colorSets[category]?.lettersCollor,
       ),
       textAlign: TextAlign.center,
     );

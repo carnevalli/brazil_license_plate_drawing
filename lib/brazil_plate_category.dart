@@ -1,0 +1,1 @@
+enum BrazilPlateCategory { PRIVATE, COMMERCIAL }
