@@ -1,6 +1,6 @@
+import 'package:brazil_license_plate_drawing/brazil_plate_category.dart';
+import 'package:brazil_license_plate_drawing/plate_color_set.dart';
 import 'package:flutter/material.dart';
-import 'package:image_zoom_on_pinch/p/brazil_plate_category.dart';
-import 'package:image_zoom_on_pinch/p/plate_color_set.dart';
 
 class ThreeLettersPlate extends StatelessWidget {
   /// The letters and numbers drawn in the licence plate
