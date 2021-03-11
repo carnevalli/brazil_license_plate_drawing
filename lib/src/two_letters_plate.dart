@@ -189,6 +189,7 @@ class TwoLettersPlate extends StatelessWidget {
                 ],
                 fontSize: realHeight * _localityContainerLettersRelation,
                 fontFamily: _fontFamily,
+                package: 'brazil_license_plate_drawing',
                 color: _colorSets[category]?.lettersCollor),
           )),
       SizedBox(
@@ -219,6 +220,7 @@ class TwoLettersPlate extends StatelessWidget {
           height: 1,
           fontSize: fontSize * 1.05,
           fontFamily: _fontFamily,
+          package: 'brazil_license_plate_drawing',
           color: _colorSets[category]?.lettersCollor,
           shadows: [
             Shadow(

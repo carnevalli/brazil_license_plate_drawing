@@ -92,12 +92,13 @@ TwoLettersPlate(
 
 ### Compact Version
 ![Brazil Three Letters Particular License Plate](/resources/docs/images/3l-compact.png)
+
 Without the locality header. Available for ```TwoLettersPlate``` and ```ThreeLettersPlate```.
 
 ### Main Parameters
 Parameter | Description
 ---|---
-*double* width| The width that the whole widget will take. If null, the width value will be infered from the height value. If height is null, then the ``_defaultWidthvalue`` property will be considered.
+*double* width| The width that the whole widget will take. If null, the width value will be inferred from the height value. If height is null, then the ``_defaultWidthvalue`` property will be considered.
 *double* height|The height that the whole widget will take. If left null, then the original proportion factor will be used to calculate this value from the width value.
 *BrazilPlateCategory* category|The plate's category which determines the default color set.
 *bool* showLocality| *Except for Mercosul*. Whether to show or hide the locality header. Defaults to ```true```.
@@ -108,4 +109,4 @@ Parameter | Description
 *String* mercosulLogoAsset| *Mercosul only*. The path of the logo asset that will be placed in the top left corner. Considers a relative path from the root of the `assets` folder. Defaults to `merco.png`
 
 ### Known Limitations
-* These widgets were created to support only the expected number of characters, according to each plate type. Using more than the expected number of characters can led to unexpected behaviours, like overflows and exceptions.
+* These widgets were created to support only the expected number of characters, according to each plate type. Using more than the expected number of characters can lead to unexpected behaviours, like overflows and exceptions.

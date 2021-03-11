@@ -125,8 +125,8 @@ class MercosulPlate extends StatelessWidget {
       this.category = BrazilPlateCategory.PARTICULAR,
       this.countryText = 'BRASIL',
       this.countryAcronymLetters = 'BR',
-      this.countryFlagAsset = 'brazil.png',
-      this.mercosulLogoAsset = 'merco.png'});
+      this.countryFlagAsset = 'assets/images/brazil.png',
+      this.mercosulLogoAsset = 'assets/images/merco.png'});
 
   @override
   Widget build(BuildContext context) {
@@ -212,6 +212,7 @@ class MercosulPlate extends StatelessWidget {
                 color: Colors.transparent,
                 height: realHeight * _localityContainerHeightRelation * 0.8,
                 child: Image.asset(mercosulLogoAsset,
+                    package: 'brazil_license_plate_drawing',
                     color: Color(0xFF003399),
                     colorBlendMode: BlendMode.lighten),
               ),
@@ -236,6 +237,7 @@ class MercosulPlate extends StatelessWidget {
                   ),
                   child: Image.asset(
                     countryFlagAsset,
+                    package: 'brazil_license_plate_drawing',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -273,6 +275,7 @@ class MercosulPlate extends StatelessWidget {
         fontSize: fontSize,
         letterSpacing: 2 * (fontSize / 98),
         fontFamily: 'fe',
+        package: 'brazil_license_plate_drawing',
         color: _colorSets[category]?.lettersCollor,
       ),
       textAlign: TextAlign.center,

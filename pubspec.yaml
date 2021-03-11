@@ -18,16 +18,16 @@ dev_dependencies:
 
 flutter:
   assets:
-  - assets/images/brazil.png
-  - assets/images/merco.png
+  - packages/brazil_license_plate_drawing/assets/images/brazil.png
+  - packages/brazil_license_plate_drawing/assets/images/merco.png
 
   fonts:
   - family: Mandatory
     fonts:
-      - asset: assets/fonts/mandatory.ttf
+      - asset: packages/brazil_license_plate_drawing/assets/fonts/mandatory.ttf
   - family: Fe
     fonts:
-      - asset: assets/fonts/fe.ttf
+      - asset: packages/brazil_license_plate_drawing/assets/fonts/fe.ttf
   - family: Xanh
     fonts:
-      - asset: assets/fonts/XanhMono-Regular.ttf
+      - asset: packages/brazil_license_plate_drawing/assets/fonts/XanhMono-Regular.ttf

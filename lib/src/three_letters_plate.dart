@@ -193,6 +193,7 @@ class ThreeLettersPlate extends StatelessWidget {
                 ],
                 fontSize: realHeight * _localityContainerLettersRelation,
                 fontFamily: _fontFamily,
+                package: 'brazil_license_plate_drawing',
                 color: _colorSets[category]?.lettersCollor),
           )),
       SizedBox(
@@ -250,6 +251,7 @@ class ThreeLettersPlate extends StatelessWidget {
           fontSize: fontSize * 1.1,
           letterSpacing: 4 * (fontSize / 98),
           fontFamily: _fontFamily,
+          package: 'brazil_license_plate_drawing',
           color: _colorSets[category]?.lettersCollor,
           shadows: [
             Shadow(
