@@ -2,6 +2,7 @@ import 'package:brazil_license_plate_drawing/src/brazil_plate_category.dart';
 import 'package:brazil_license_plate_drawing/src/plate_color_set.dart';
 import 'package:flutter/material.dart';
 
+/// A widget that draws a Mercosul plate on the screen.
 class MercosulPlate extends StatelessWidget {
   /// The letters and numbers drawn in the licence plate
   final String plate;
