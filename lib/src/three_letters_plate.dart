@@ -1,5 +1,5 @@
-import 'package:brazil_license_plate_drawing/brazil_plate_category.dart';
-import 'package:brazil_license_plate_drawing/plate_color_set.dart';
+import 'package:brazil_license_plate_drawing/src/brazil_plate_category.dart';
+import 'package:brazil_license_plate_drawing/src/plate_color_set.dart';
 import 'package:flutter/material.dart';
 
 class ThreeLettersPlate extends StatelessWidget {
