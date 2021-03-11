@@ -1,24 +1,12 @@
 # BrazilLicensePlateDrawing
 
-Draw on the screen three different types of brazilian cars' license plates:
+A set of Flutter Widgets which draw on the screen three different types of brazilian cars' license plates:
 
 * Mercosul
 * Three Letters (pattern from the 1990's)
 * Two Letters (pattern from the 1970's)
 
 For each plate type, there are two color themes: commercial (used by trucks, buses, taxis, etc) and particular, used by private vehicles.
-
-## Installation
-
-Add this package as a dependency to ``pubspec.yaml``:
-```yaml
-brazil_license_plate_drawing: ^0.0.1
-```
-
-And then import package classes:
-```dart
-import 'package:brazil_license_plate_drawing/brazil_license_plate_drawing.dart';
-```
 
 ## Usage
 
