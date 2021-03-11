@@ -72,7 +72,7 @@ class ThreeLettersPlate extends StatelessWidget {
         backgroundColor: Colors.red[700]!,
         borderColor: Colors.red[900]!,
         lettersCollor: Colors.white),
-    BrazilPlateCategory.PRIVATE: PlateColorSet(
+    BrazilPlateCategory.PARTICULAR: PlateColorSet(
         backgroundColor: Colors.grey[400]!,
         borderColor: Colors.grey,
         lettersCollor: Colors.black),
@@ -120,7 +120,7 @@ class ThreeLettersPlate extends StatelessWidget {
       this.height,
       this.showLocality = true,
       this.locality = 'BRASIL',
-      this.category = BrazilPlateCategory.PRIVATE});
+      this.category = BrazilPlateCategory.PARTICULAR});
 
   @override
   Widget build(BuildContext context) {

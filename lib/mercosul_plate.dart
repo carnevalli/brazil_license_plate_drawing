@@ -76,7 +76,7 @@ class MercosulPlate extends StatelessWidget {
         backgroundColor: Colors.white,
         borderColor: Colors.red,
         lettersCollor: Colors.red),
-    BrazilPlateCategory.PRIVATE: PlateColorSet(
+    BrazilPlateCategory.PARTICULAR: PlateColorSet(
         backgroundColor: Colors.white,
         borderColor: Colors.black,
         lettersCollor: Colors.black),
@@ -122,7 +122,7 @@ class MercosulPlate extends StatelessWidget {
   const MercosulPlate(this.plate,
       {this.width,
       this.height,
-      this.category = BrazilPlateCategory.PRIVATE,
+      this.category = BrazilPlateCategory.PARTICULAR,
       this.countryText = 'BRASIL',
       this.countryAcronymLetters = 'BR',
       this.countryFlagAsset = 'brazil.png',
