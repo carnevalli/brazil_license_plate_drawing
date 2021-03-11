@@ -19,7 +19,7 @@ class MercosulPlate extends StatelessWidget {
   final BrazilPlateCategory category;
 
   /// The string that represents the text which will be positioned at the top
-  /// of the licence plate, generaly the name of the country.
+  /// of the licence plate, generally the name of the country.
   /// Always converted to uppercase.
   /// Defaults to "BRASIL"
   final String countryText;
