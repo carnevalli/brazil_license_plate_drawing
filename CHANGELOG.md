@@ -9,3 +9,6 @@
 
 ## [0.0.3] - 2021-03-11
 * Improvements in code documentation coverage
+
+## [0.0.4] - 2021-03-11
+* Examples section has been created
