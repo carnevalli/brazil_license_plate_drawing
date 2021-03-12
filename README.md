@@ -13,7 +13,7 @@ For each plate type, there are two color themes: commercial (used by trucks, bus
 ### Mercosul - Particular/Private Vehicle
 ![Brazil Mercosul Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/mercosul-particular.png)
 ```dart
-MercosulPlate(
+const MercosulPlate(
     'AVG0A33',
     width: 600,
     category: BrazilPlateCategory.PARTICULAR,
@@ -23,7 +23,7 @@ MercosulPlate(
 ### Mercosul / Commercial Vehicle
 ![Brazil Mercosul Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/mercosul-commercial.png)
 ```dart
-MercosulPlate(
+const MercosulPlate(
     'AVG0A33',
     width: 600,
     category: BrazilPlateCategory.COMMERCIAL,
@@ -33,7 +33,7 @@ MercosulPlate(
 ### Three Letters - Particular/Private Vehicle
 ![Brazil Three Letters Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/3l-particular.png)
 ```dart
-ThreeLettersPlate(
+const ThreeLettersPlate(
     'AVG0033',
     width: 600,
     locality: 'PR - CURITIBA',
@@ -45,7 +45,7 @@ ThreeLettersPlate(
 ### Three Letters - Commercial Vehicle
 ![Brazil Three Letters Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/3l-commercial.png)
 ```dart
-ThreeLettersPlate(
+const ThreeLettersPlate(
     'AVG0033',
     width: 600,
     locality: 'PR - CURITIBA',
@@ -57,7 +57,7 @@ ThreeLettersPlate(
 ### Two Letters - Particular/Private Vehicle
 ![Brazil Two Letters Particular License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/2l-particular.png)
 ```dart
-TwoLettersPlate(
+const TwoLettersPlate(
     'AV0033',
     width: 600,
     locality: 'RJ - RIO DE JANEIRO',
@@ -69,7 +69,7 @@ TwoLettersPlate(
 ### Two Letters - Commercial
 ![Brazil Two Letters Commercial License Plate](https://raw.githubusercontent.com/carnevalli/brazil_license_plate_drawing/main/resources/docs/images/2l-commercial.png)
 ```dart
-TwoLettersPlate(
+const TwoLettersPlate(
     'AV0033',
     width: 600,
     locality: 'RJ - RIO DE JANEIRO',
@@ -84,7 +84,7 @@ TwoLettersPlate(
 Without the locality header. Available for ```TwoLettersPlate``` and ```ThreeLettersPlate```.
 
 ```dart
-TwoLettersPlate(
+const TwoLettersPlate(
     'AV0033',
     width: 600,
     showLocality: false,
