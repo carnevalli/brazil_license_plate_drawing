@@ -83,6 +83,15 @@ TwoLettersPlate(
 
 Without the locality header. Available for ```TwoLettersPlate``` and ```ThreeLettersPlate```.
 
+```dart
+TwoLettersPlate(
+    'AV0033',
+    width: 600,
+    showLocality: false,
+    category: BrazilPlateCategory.COMMERCIAL,
+),
+```
+
 ### Main Parameters
 Parameter | Description
 ---|---
