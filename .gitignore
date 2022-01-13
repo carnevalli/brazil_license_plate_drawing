@@ -30,6 +30,16 @@
 .pub/
 build/
 
+
+example/.dart_tool/
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
+example/.packages
+example/.pub-cache/
+example/.pub/
+example/build/
+
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
