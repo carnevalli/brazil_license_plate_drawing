@@ -80,6 +80,14 @@ enum BrazilThreeLettersPlateCategory {
 }
 
 extension BrazilThreeLettersPlateCategoryEx on BrazilThreeLettersPlateCategory {
+  double get lettersHeightRelation {
+    if (this == BrazilThreeLettersPlateCategory.representacao) {
+      return 0.8;
+    }
+
+    return 1.0;
+  }
+
   PlateColorSet get plateColor {
     switch (this) {
       case BrazilThreeLettersPlateCategory.particular:

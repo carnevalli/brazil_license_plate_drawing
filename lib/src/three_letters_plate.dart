@@ -199,12 +199,6 @@ class ThreeLettersPlate extends StatelessWidget {
     final String letters = plate.replaceAll("-", "").substring(0, 3);
     final String numbers = plate.replaceAll("-", "").substring(3, 7);
 
-    var __lettersHeightRelation = _lettersHeightRelation;
-
-    if (category == BrazilThreeLettersPlateCategory.representacao) {
-      __lettersHeightRelation = __lettersHeightRelation * 0.8;
-    }
-
     return Container(
       height: realHeight * _lettersHeightRelation,
       child: Row(
@@ -218,7 +212,7 @@ class ThreeLettersPlate extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ],
-          _getPlateChars(letters, realHeight * __lettersHeightRelation),
+          _getPlateChars(letters, realHeight * _lettersHeightRelation * category.lettersHeightRelation),
           SizedBox(
             width: 4 * (realWidth / 500),
           ),
@@ -242,7 +236,7 @@ class ThreeLettersPlate extends StatelessWidget {
           SizedBox(
             width: 4 * (realWidth / 500),
           ),
-          _getPlateChars(numbers, realHeight * __lettersHeightRelation),
+          _getPlateChars(numbers, realHeight * _lettersHeightRelation * category.lettersHeightRelation),
         ],
       ),
     );

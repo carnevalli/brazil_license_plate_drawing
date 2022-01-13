@@ -27,8 +27,9 @@ class Home extends StatelessWidget {
       right: true,
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               SizedBox(
                 height: 30,
@@ -45,56 +46,74 @@ class Home extends StatelessWidget {
               ),
               MercosulPlate(
                 'AVG0A33',
-                width: 300,
                 category: BrazilMercosulPlateCategory.particular,
               ),
               SizedBox(
+                height: 5,
+              ),
+              Text("Particular"),
+              SizedBox(
                 height: 30,
               ),
               MercosulPlate(
                 'AVG0A33',
-                width: 300,
                 category: BrazilMercosulPlateCategory.comercial,
               ),
               SizedBox(
+                height: 5,
+              ),
+              Text("Comercial"),
+              SizedBox(
                 height: 30,
               ),
               MercosulPlate(
                 'AVG0A33',
-                width: 300,
                 category: BrazilMercosulPlateCategory.especial,
               ),
               SizedBox(
+                height: 5,
+              ),
+              Text("Especial"),
+              SizedBox(
                 height: 30,
               ),
               MercosulPlate(
                 'AVG0A33',
-                width: 300,
                 category: BrazilMercosulPlateCategory.oficial,
               ),
               SizedBox(
-                height: 30,
+                height: 5,
               ),
-              MercosulPlate(
-                'AVG0A33',
-                width: 300,
-                category: BrazilMercosulPlateCategory.diplomatico,
-              ),
+              Text("Oficial"),
               SizedBox(
                 height: 30,
               ),
               MercosulPlate(
                 'AVG0A33',
-                width: 300,
+                category: BrazilMercosulPlateCategory.diplomatico,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text("Diplomático"),
+              SizedBox(
+                height: 30,
+              ),
+              MercosulPlate(
+                'AVG0A33',
                 category: BrazilMercosulPlateCategory.colecionador,
               ),
+              SizedBox(
+                height: 5,
+              ),
+              Text("Colecionado"),
               SizedBox(
                 height: 30,
               ),
 
               ////////////////////////////////////////////////////////////////////////////////
               Text(
-                'Three License Plate',
+                'Three Letters License Plate',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -105,87 +124,118 @@ class Home extends StatelessWidget {
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.particular,
               ),
               SizedBox(
+                height: 5,
+              ),
+              Text("Particular"),
+              SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.comercial,
               ),
+              SizedBox(
+                height: 5,
+              ),
+              Text("Comercial"),
 
               SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.oficial,
               ),
 
               SizedBox(
+                height: 5,
+              ),
+              Text("Oficial"),
+
+              SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.especial,
               ),
 
               SizedBox(
+                height: 5,
+              ),
+              Text("Especial"),
+
+              SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.diplomatico,
               ),
 
               SizedBox(
+                height: 5,
+              ),
+              Text("Diplomático"),
+
+              SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.colecionador,
               ),
 
               SizedBox(
-                height: 30,
+                height: 5,
               ),
-              ThreeLettersPlate(
-                'AVG0033',
-                width: 300,
-                locality: 'PR - CURITIBA',
-                showLocality: true,
-                category: BrazilThreeLettersPlateCategory.representacao,
-              ),
+              Text("Colecionador"),
 
               SizedBox(
                 height: 30,
               ),
               ThreeLettersPlate(
                 'AVG0033',
-                width: 300,
+                locality: 'PR - CURITIBA',
+                showLocality: true,
+                category: BrazilThreeLettersPlateCategory.representacao,
+              ),
+
+              SizedBox(
+                height: 5,
+              ),
+              Text("Representação"),
+
+              SizedBox(
+                height: 30,
+              ),
+              ThreeLettersPlate(
+                'AVG0033',
                 locality: 'PR - CURITIBA',
                 showLocality: true,
                 category: BrazilThreeLettersPlateCategory.aprendizagem,
               ),
+
+              SizedBox(
+                height: 5,
+              ),
+              Text("Aprendizagem"),
+
               SizedBox(
                 height: 30,
               ),
@@ -203,30 +253,44 @@ class Home extends StatelessWidget {
               ),
               TwoLettersPlate(
                 'AV0033',
-                width: 300,
                 locality: 'RJ - RIO DE JANEIRO',
                 showLocality: true,
                 category: BrazilTwoLettersPlateCategory.particular,
               ),
+
+              SizedBox(
+                height: 5,
+              ),
+              Text("Particular"),
+
               SizedBox(
                 height: 30,
               ),
               TwoLettersPlate(
                 'AV0033',
-                width: 300,
                 locality: 'RJ - RIO DE JANEIRO',
                 showLocality: true,
                 category: BrazilTwoLettersPlateCategory.comercial,
               ),
+
+              SizedBox(
+                height: 5,
+              ),
+              Text("Comercial"),
+
               SizedBox(
                 height: 30,
               ),
               TwoLettersPlate(
                 'AV0033',
-                width: 300,
                 showLocality: false,
                 category: BrazilTwoLettersPlateCategory.comercial,
               ),
+
+              SizedBox(
+                height: 5,
+              ),
+              Text("Comercial"),
             ],
           ),
         ),
