@@ -6,8 +6,6 @@ A set of Flutter Widgets which draw on the screen three different types of brazi
 * Three Letters (pattern from the 1990's)
 * Two Letters (pattern from the 1970's)
 
-For each plate type, there are two color themes: commercial (used by trucks, buses, taxis, etc) and particular, used by private vehicles.
-
 ## Usage
 
 ### Mercosul - Particular/Private Vehicle
@@ -16,7 +14,7 @@ For each plate type, there are two color themes: commercial (used by trucks, bus
 const MercosulPlate(
     'AVG0A33',
     width: 600,
-    category: BrazilPlateCategory.PARTICULAR,
+    category: BrazilMercosulPlateCategory.particular,
 )
 ```
 
@@ -26,7 +24,7 @@ const MercosulPlate(
 const MercosulPlate(
     'AVG0A33',
     width: 600,
-    category: BrazilPlateCategory.COMMERCIAL,
+    category: BrazilMercosulPlateCategory.comercial,
 )
 ```
 
@@ -38,7 +36,7 @@ const ThreeLettersPlate(
     width: 600,
     locality: 'PR - CURITIBA',
     showLocality: true,
-    category: BrazilPlateCategory.PARTICULAR,
+    category: BrazilThreeLettersPlateCategory.particular,
 )
 ```
 
@@ -50,7 +48,7 @@ const ThreeLettersPlate(
     width: 600,
     locality: 'PR - CURITIBA',
     showLocality: true,
-    category: BrazilPlateCategory.COMMERCIAL,
+    category: BrazilThreeLettersPlateCategory.comercial,
 )
 ```
 
@@ -62,7 +60,7 @@ const TwoLettersPlate(
     width: 600,
     locality: 'RJ - RIO DE JANEIRO',
     showLocality: true,
-    category: BrazilPlateCategory.PARTICULAR,
+    category: BrazilTwoLettersPlateCategory.particular,
 )
 ```
 
@@ -74,7 +72,7 @@ const TwoLettersPlate(
     width: 600,
     locality: 'RJ - RIO DE JANEIRO',
     showLocality: true,
-    category: BrazilPlateCategory.COMMERCIAL,
+    category: BrazilTwoLettersPlateCategory.comercial,
 ),
 ```
 
@@ -88,7 +86,7 @@ const TwoLettersPlate(
     'AV0033',
     width: 600,
     showLocality: false,
-    category: BrazilPlateCategory.COMMERCIAL,
+    category: BrazilTwoLettersPlateCategory.comercial,
 ),
 ```
 

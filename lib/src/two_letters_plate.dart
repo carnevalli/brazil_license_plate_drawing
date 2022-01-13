@@ -1,5 +1,4 @@
 import 'package:brazil_license_plate_drawing/src/brazil_plate_category.dart';
-import 'package:brazil_license_plate_drawing/src/plate_color_set.dart';
 import 'package:flutter/material.dart';
 
 /// A widget that prints a license plate in
@@ -24,7 +23,7 @@ class TwoLettersPlate extends StatelessWidget {
   final bool showLocality;
 
   /// The plate's category which determines the default color set
-  final BrazilPlateCategory category;
+  final BrazilTwoLettersPlateCategory category;
 
   /// Relation between width and height
   static const double _heightRelation = 215 / 497;
@@ -66,18 +65,6 @@ class TwoLettersPlate extends StatelessWidget {
   /// The default font family
   static const String _fontFamily = 'Xanh';
 
-  /// Default color sets
-  static final Map<BrazilPlateCategory, PlateColorSet> _colorSets = {
-    BrazilPlateCategory.COMMERCIAL: PlateColorSet(
-        backgroundColor: Colors.red[800]!,
-        borderColor: Colors.red[900]!,
-        lettersCollor: Colors.white),
-    BrazilPlateCategory.PARTICULAR: PlateColorSet(
-        backgroundColor: Colors.amber,
-        borderColor: Colors.amber[600]!,
-        lettersCollor: Colors.black),
-  };
-
   /// Evaluates the width value that will be used to draw the widget.
   /// If a value is passed to the constructor, then this value will be used.
   /// Otherwise, it checks if a value has been passed to height and calculates
@@ -115,17 +102,18 @@ class TwoLettersPlate extends StatelessWidget {
   /// If a value is provided for these two properties, then the original
   /// aspect ratio will not be take in account.
   /// If neither are provided, the value of _defaultWidth will be used.
-  const TwoLettersPlate(this.plate,
-      {this.width,
-      this.height,
-      this.showLocality = true,
-      this.locality = 'BRASIL',
-      this.category = BrazilPlateCategory.PARTICULAR});
+  const TwoLettersPlate(
+    this.plate, {
+    this.width,
+    this.height,
+    this.showLocality = true,
+    this.locality = 'BRASIL',
+    this.category = BrazilTwoLettersPlateCategory.particular,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return _externalWrapper(
-        child: _internalWrapper(child: _charactersContent()));
+    return _externalWrapper(child: _internalWrapper(child: _charactersContent()));
   }
 
   /// Draws the outer borders.
@@ -141,15 +129,16 @@ class TwoLettersPlate extends StatelessWidget {
           ),
         ],
         borderRadius: BorderRadius.circular(15 * (realWidth / 500)),
-        color: _colorSets[category]?.borderColor,
+        color: category.plateColor.borderColor,
       ),
       width: realWidth,
       height: realHeight,
       padding: EdgeInsets.fromLTRB(
-          realWidth * _leftBorderRelation,
-          realHeight * _verticalBorderRelation,
-          realWidth * _rightBorderRelation,
-          realHeight * _verticalBorderRelation),
+        realWidth * _leftBorderRelation,
+        realHeight * _verticalBorderRelation,
+        realWidth * _rightBorderRelation,
+        realHeight * _verticalBorderRelation,
+      ),
       child: _internalWrapper(child: _charactersContent()),
     );
   }
@@ -159,7 +148,7 @@ class TwoLettersPlate extends StatelessWidget {
   Widget _internalWrapper({required Widget child}) {
     return Container(
       decoration: BoxDecoration(
-        color: _colorSets[category]?.backgroundColor,
+        color: category.plateColor.backgroundColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -182,17 +171,12 @@ class TwoLettersPlate extends StatelessWidget {
             locality.toUpperCase(),
             textAlign: TextAlign.center,
             style: TextStyle(
-                shadows: [
-                  Shadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 1,
-                      offset: Offset(
-                          1 * (realWidth / 1000), 1 * (realWidth / 1000)))
-                ],
-                fontSize: realHeight * _localityContainerLettersRelation,
-                fontFamily: _fontFamily,
-                package: 'brazil_license_plate_drawing',
-                color: _colorSets[category]?.lettersCollor),
+              shadows: [Shadow(color: Colors.black.withOpacity(0.5), blurRadius: 1, offset: Offset(1 * (realWidth / 1000), 1 * (realWidth / 1000)))],
+              fontSize: realHeight * _localityContainerLettersRelation,
+              fontFamily: _fontFamily,
+              package: 'brazil_license_plate_drawing',
+              color: category.plateColor.lettersCollor,
+            ),
           )),
       SizedBox(
         height: realHeight * _lettersBorderTop,
@@ -219,17 +203,19 @@ class TwoLettersPlate extends StatelessWidget {
     return Text(
       chars.toUpperCase(),
       style: TextStyle(
-          height: 1,
-          fontSize: fontSize * 1.05,
-          fontFamily: _fontFamily,
-          package: 'brazil_license_plate_drawing',
-          color: _colorSets[category]?.lettersCollor,
-          shadows: [
-            Shadow(
-                color: Colors.black.withOpacity(0.5),
-                blurRadius: 1 * (fontSize / 98),
-                offset: Offset(1 * (fontSize / 98), 1 * (fontSize / 98)))
-          ]),
+        height: 1,
+        fontSize: fontSize * 1.05,
+        fontFamily: _fontFamily,
+        package: 'brazil_license_plate_drawing',
+        color: category.plateColor.lettersCollor,
+        shadows: [
+          Shadow(
+            color: Colors.black.withOpacity(0.5),
+            blurRadius: 1 * (fontSize / 98),
+            offset: Offset(1 * (fontSize / 98), 1 * (fontSize / 98)),
+          ),
+        ],
+      ),
       textAlign: TextAlign.center,
     );
   }

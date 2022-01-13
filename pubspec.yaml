@@ -19,6 +19,7 @@ flutter:
   assets:
   - packages/brazil_license_plate_drawing/assets/images/brazil.png
   - packages/brazil_license_plate_drawing/assets/images/merco.png
+  - packages/brazil_license_plate_drawing/assets/images/brasaoOficial.png
 
   fonts:
   - family: Mandatory
