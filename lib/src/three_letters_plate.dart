@@ -25,13 +25,13 @@ class ThreeLettersPlate extends StatelessWidget {
   final BrazilThreeLettersPlateCategory category;
 
   /// Relation between width and height
-  static const double _heightRelation = 400 / 1231;
+  static const double _heightRelation = 400 / 1400;
 
   /// Relation between the width of the left border and the entire plate width.
-  static const double _leftBorderRelation = 28 / 1231;
+  static const double _leftBorderRelation = 28 / 1400;
 
   /// Relation between the width of the right border and the entire plate width.
-  static const double _rightBorderRelation = 20 / 1231;
+  static const double _rightBorderRelation = 20 / 1400;
 
   /// Relation between the height of top and bottom borders
   /// and the entire plate height.
@@ -39,7 +39,7 @@ class ThreeLettersPlate extends StatelessWidget {
 
   /// Relation between the width of the locality header container and the entire
   /// plate width.
-  static const double _localityContainerWidthRelation = 974 / 1231;
+  static const double _localityContainerWidthRelation = 974 / 1400;
 
   /// Relation between the height of the locality header container and the entire
   /// plate height.
@@ -174,7 +174,7 @@ class ThreeLettersPlate extends StatelessWidget {
             locality.toUpperCase(),
             textAlign: TextAlign.center,
             style: TextStyle(
-              height: 1.4,
+              height: 1.2,
               shadows: [
                 Shadow(
                   color: Colors.black.withOpacity(0.5),

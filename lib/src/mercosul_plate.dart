@@ -43,7 +43,7 @@ class MercosulPlate extends StatelessWidget {
   // real car license plate.
 
   /// Relation between width and height
-  static const double _heightRelation = 235 / 724;
+  static const double _heightRelation = 250 / 800;
 
   /// Relation between the width of the left border and the entire plate width.
   static const double _leftBorderRelation = 15 / 724;
@@ -53,19 +53,19 @@ class MercosulPlate extends StatelessWidget {
 
   /// Relation between the height of top and bottom borders
   /// and the entire plate height.
-  static const double _verticalBorderRelation = 14 / 235;
+  static const double _verticalBorderRelation = 14 / 250;
 
   /// Relation between the height of the locality header container and the entire
   /// plate height.
-  static const double _localityContainerHeightRelation = 55 / 235;
+  static const double _localityContainerHeightRelation = 55 / 250;
 
   /// Relation between the height of the locality header text font and the entire
   /// plate height.
-  static const double _localityContainerLettersRelation = 28 / 235;
+  static const double _localityContainerLettersRelation = 28 / 250;
 
   /// Relation between the height of the letters of the license plate and the entire
   /// license plate height.
-  static const double _lettersHeightRelation = 130 / 235;
+  static const double _lettersHeightRelation = 130 / 250;
   // Default plate width if neither width or height values were provided for the
   // class constructor
   static const double _defaultWidth = 300;
