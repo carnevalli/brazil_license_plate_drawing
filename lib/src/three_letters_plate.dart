@@ -1,5 +1,4 @@
 import 'package:brazil_license_plate_drawing/src/brazil_plate_category.dart';
-import 'package:brazil_license_plate_drawing/src/plate_color_set.dart';
 import 'package:flutter/material.dart';
 
 /// A widget that prints a license plate in the
@@ -23,16 +22,16 @@ class ThreeLettersPlate extends StatelessWidget {
   final bool showLocality;
 
   /// The plate's category which determines the default color set
-  final BrazilPlateCategory category;
+  final BrazilThreeLettersPlateCategory category;
 
   /// Relation between width and height
-  static const double _heightRelation = 400 / 1231;
+  static const double _heightRelation = 400 / 1400;
 
   /// Relation between the width of the left border and the entire plate width.
-  static const double _leftBorderRelation = 28 / 1231;
+  static const double _leftBorderRelation = 28 / 1400;
 
   /// Relation between the width of the right border and the entire plate width.
-  static const double _rightBorderRelation = 20 / 1231;
+  static const double _rightBorderRelation = 20 / 1400;
 
   /// Relation between the height of top and bottom borders
   /// and the entire plate height.
@@ -40,7 +39,7 @@ class ThreeLettersPlate extends StatelessWidget {
 
   /// Relation between the width of the locality header container and the entire
   /// plate width.
-  static const double _localityContainerWidthRelation = 974 / 1231;
+  static const double _localityContainerWidthRelation = 974 / 1400;
 
   /// Relation between the height of the locality header container and the entire
   /// plate height.
@@ -67,18 +66,6 @@ class ThreeLettersPlate extends StatelessWidget {
 
   /// Default font family
   static const String _fontFamily = 'Mandatory';
-
-  /// Default color sets
-  static final Map<BrazilPlateCategory, PlateColorSet> _colorSets = {
-    BrazilPlateCategory.COMMERCIAL: PlateColorSet(
-        backgroundColor: Colors.red[700]!,
-        borderColor: Colors.red[900]!,
-        lettersCollor: Colors.white),
-    BrazilPlateCategory.PARTICULAR: PlateColorSet(
-        backgroundColor: Colors.grey[400]!,
-        borderColor: Colors.grey,
-        lettersCollor: Colors.black),
-  };
 
   /// Evaluates the width value that will be used to draw the widget.
   /// If a value is passed to the constructor, then this value will be used.
@@ -117,17 +104,18 @@ class ThreeLettersPlate extends StatelessWidget {
   /// If a value is provided for these two properties, then the original
   /// aspect ratio will not be take in account.
   /// If neither are provided, the value of _defaultWidth will be used.
-  const ThreeLettersPlate(this.plate,
-      {this.width,
-      this.height,
-      this.showLocality = true,
-      this.locality = 'BRASIL',
-      this.category = BrazilPlateCategory.PARTICULAR});
+  const ThreeLettersPlate(
+    this.plate, {
+    this.width,
+    this.height,
+    this.showLocality = true,
+    this.locality = 'BRASIL',
+    this.category = BrazilThreeLettersPlateCategory.particular,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return _externalWrapper(
-        child: _internalWrapper(child: _charactersContent()));
+    return _externalWrapper(child: _internalWrapper(child: _charactersContent()));
   }
 
   /// Draws the outer borders.
@@ -143,15 +131,16 @@ class ThreeLettersPlate extends StatelessWidget {
           ),
         ],
         borderRadius: BorderRadius.circular(15 * (realWidth / 500)),
-        color: _colorSets[category]?.borderColor,
+        color: category.plateColor.borderColor,
       ),
       width: realWidth,
       height: realHeight,
       padding: EdgeInsets.fromLTRB(
-          realWidth * _leftBorderRelation,
-          realHeight * _verticalBorderRelation,
-          realWidth * _rightBorderRelation,
-          realHeight * _verticalBorderRelation),
+        realWidth * _leftBorderRelation,
+        realHeight * _verticalBorderRelation,
+        realWidth * _rightBorderRelation,
+        realHeight * _verticalBorderRelation,
+      ),
       child: _internalWrapper(child: _charactersContent()),
     );
   }
@@ -161,7 +150,7 @@ class ThreeLettersPlate extends StatelessWidget {
   Widget _internalWrapper({required Widget child}) {
     return Container(
       decoration: BoxDecoration(
-        color: _colorSets[category]?.backgroundColor,
+        color: category.plateColor.backgroundColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -185,18 +174,19 @@ class ThreeLettersPlate extends StatelessWidget {
             locality.toUpperCase(),
             textAlign: TextAlign.center,
             style: TextStyle(
-                height: 1.4,
-                shadows: [
-                  Shadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 2 * (realWidth / 1000),
-                      offset: Offset(
-                          2 * (realWidth / 1000), 2 * (realWidth / 1000)))
-                ],
-                fontSize: realHeight * _localityContainerLettersRelation,
-                fontFamily: _fontFamily,
-                package: 'brazil_license_plate_drawing',
-                color: _colorSets[category]?.lettersCollor),
+              height: 1.2,
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.5),
+                  blurRadius: 2 * (realWidth / 1000),
+                  offset: Offset(2 * (realWidth / 1000), 2 * (realWidth / 1000)),
+                ),
+              ],
+              fontSize: realHeight * _localityContainerLettersRelation,
+              fontFamily: _fontFamily,
+              package: 'brazil_license_plate_drawing',
+              color: category.plateColor.lettersCollor,
+            ),
           )),
       SizedBox(
         height: realHeight * _lettersBorderTop,
@@ -206,15 +196,23 @@ class ThreeLettersPlate extends StatelessWidget {
 
   /// Draws the area in which will be printed the main license plate characters.
   Widget _charactersContent() {
-    final String letters = plate.substring(0, 3);
-    final String numbers = plate.substring(3, 7);
+    final String letters = plate.replaceAll("-", "").substring(0, 3);
+    final String numbers = plate.replaceAll("-", "").substring(3, 7);
+
     return Container(
       height: realHeight * _lettersHeightRelation,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _getPlateChars(letters, realHeight * _lettersHeightRelation),
+          if (category == BrazilThreeLettersPlateCategory.representacao) ...[
+            Image.asset(
+              'assets/images/brasaoOficial.png',
+              package: 'brazil_license_plate_drawing',
+              fit: BoxFit.contain,
+            ),
+          ],
+          _getPlateChars(letters, realHeight * _lettersHeightRelation * category.lettersHeightRelation),
           SizedBox(
             width: 4 * (realWidth / 500),
           ),
@@ -225,20 +223,20 @@ class ThreeLettersPlate extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 2 * (realWidth / 1000),
-                      offset: Offset(
-                          2 * (realWidth / 1000), 2 * (realWidth / 1000)))
+                    color: Colors.black,
+                    blurRadius: 2 * (realWidth / 1000),
+                    offset: Offset(2 * (realWidth / 1000), 2 * (realWidth / 1000)),
+                  ),
                 ],
                 borderRadius: BorderRadius.circular(5 * (realWidth / 1000)),
-                color: _colorSets[category]?.lettersCollor,
+                color: category.plateColor.lettersCollor,
               ),
             ),
           ),
           SizedBox(
             width: 4 * (realWidth / 500),
           ),
-          _getPlateChars(numbers, realHeight * _lettersHeightRelation),
+          _getPlateChars(numbers, realHeight * _lettersHeightRelation * category.lettersHeightRelation),
         ],
       ),
     );
@@ -249,18 +247,20 @@ class ThreeLettersPlate extends StatelessWidget {
     return Text(
       chars.toUpperCase(),
       style: TextStyle(
-          height: 1.03,
-          fontSize: fontSize * 1.1,
-          letterSpacing: 4 * (fontSize / 98),
-          fontFamily: _fontFamily,
-          package: 'brazil_license_plate_drawing',
-          color: _colorSets[category]?.lettersCollor,
-          shadows: [
-            Shadow(
-                color: Colors.black.withOpacity(0.5),
-                blurRadius: 2 * (fontSize / 98),
-                offset: Offset(2 * (fontSize / 98), 2 * (fontSize / 98)))
-          ]),
+        height: 1.03,
+        fontSize: fontSize * 1.1,
+        letterSpacing: 4 * (fontSize / 98),
+        fontFamily: _fontFamily,
+        package: 'brazil_license_plate_drawing',
+        color: category.plateColor.lettersCollor,
+        shadows: [
+          Shadow(
+            color: Colors.black.withOpacity(0.5),
+            blurRadius: 2 * (fontSize / 98),
+            offset: Offset(2 * (fontSize / 98), 2 * (fontSize / 98)),
+          ),
+        ],
+      ),
       textAlign: TextAlign.center,
     );
   }
