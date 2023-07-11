@@ -73,14 +73,14 @@ class MercosulPlate extends StatelessWidget {
 
   /// Default color sets
   static final Map<BrazilPlateCategory, PlateColorSet> _colorSets = {
-    BrazilPlateCategory.COMMERCIAL: PlateColorSet(
-        backgroundColor: Colors.white,
-        borderColor: Colors.red,
-        lettersCollor: Colors.red),
-    BrazilPlateCategory.PARTICULAR: PlateColorSet(
-        backgroundColor: Colors.white,
-        borderColor: Colors.black,
-        lettersCollor: Colors.black),
+    BrazilPlateCategory.PARTICULAR: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.black, lettersCollor: Colors.black),
+    BrazilPlateCategory.COMMERCIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.red, lettersCollor: Colors.red),
+    BrazilPlateCategory.LEARNING: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.red, lettersCollor: Colors.red),
+    BrazilPlateCategory.SPECIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFF04AD62), lettersCollor:  Color(0xFF04AD62)),
+    BrazilPlateCategory.DIPLOMATIC: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFFFF8308), lettersCollor:Color(0xFFFF8308)),
+    BrazilPlateCategory.COLLECTION: PlateColorSet(backgroundColor: Colors.black, borderColor: Colors.white, lettersCollor:Colors.white),
+    BrazilPlateCategory.COLLECTION2: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFFB4B4B4), lettersCollor:Color(0xFFB4B4B4)),
+    BrazilPlateCategory.OFFICIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFF01B4E0), lettersCollor:Color(0xFF01B4E0)),
   };
 
   /// Evaluates the width value that will be used to draw the widget.
@@ -120,14 +120,7 @@ class MercosulPlate extends StatelessWidget {
   /// If a value is provided for these two properties, then the original
   /// aspect ratio will not be take in account.
   /// If neither are provided, the value of _defaultWidth will be used.
-  const MercosulPlate(this.plate,
-      {this.width,
-      this.height,
-      this.category = BrazilPlateCategory.PARTICULAR,
-      this.countryText = 'BRASIL',
-      this.countryAcronymLetters = 'BR',
-      this.countryFlagAsset = 'assets/images/brazil.png',
-      this.mercosulLogoAsset = 'assets/images/merco.png'});
+  const MercosulPlate(this.plate, {this.width, this.height, this.category = BrazilPlateCategory.PARTICULAR, this.countryText = 'BRASIL', this.countryAcronymLetters = 'BR', this.countryFlagAsset = 'assets/images/brazil.png', this.mercosulLogoAsset = 'assets/images/merco.png'});
 
   @override
   Widget build(BuildContext context) {
@@ -162,11 +155,7 @@ class MercosulPlate extends StatelessWidget {
         ),
         width: realWidth,
         height: realHeight,
-        padding: EdgeInsets.fromLTRB(
-            realWidth * _leftBorderRelation,
-            realHeight * _verticalBorderRelation,
-            realWidth * _rightBorderRelation,
-            realHeight * _verticalBorderRelation),
+        padding: EdgeInsets.fromLTRB(realWidth * _leftBorderRelation, realHeight * _verticalBorderRelation, realWidth * _rightBorderRelation, realHeight * _verticalBorderRelation),
         child: child);
   }
 
@@ -212,20 +201,13 @@ class MercosulPlate extends StatelessWidget {
               child: Container(
                 color: Colors.transparent,
                 height: realHeight * _localityContainerHeightRelation * 0.8,
-                child: Image.asset(mercosulLogoAsset,
-                    package: 'brazil_license_plate_drawing',
-                    color: Color(0xFF003399),
-                    colorBlendMode: BlendMode.lighten),
+                child: Image.asset(mercosulLogoAsset, package: 'brazil_license_plate_drawing', color: Color(0xFF003399), colorBlendMode: BlendMode.lighten),
               ),
             ),
             Text(
               countryText.toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  height: 1.9,
-                  fontSize: realHeight * _localityContainerLettersRelation,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+              style: TextStyle(height: 1.9, fontSize: realHeight * _localityContainerLettersRelation, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             Positioned(
               right: 5 * (realWidth / 500),
