@@ -70,14 +70,14 @@ class ThreeLettersPlate extends StatelessWidget {
 
   /// Default color sets
   static final Map<BrazilPlateCategory, PlateColorSet> _colorSets = {
-    BrazilPlateCategory.COMMERCIAL: PlateColorSet(
-        backgroundColor: Colors.red[700]!,
-        borderColor: Colors.red[900]!,
-        lettersCollor: Colors.white),
-    BrazilPlateCategory.PARTICULAR: PlateColorSet(
-        backgroundColor: Colors.grey[400]!,
-        borderColor: Colors.grey,
-        lettersCollor: Colors.black),
+    BrazilPlateCategory.PARTICULAR: PlateColorSet(backgroundColor: Colors.grey[400]!, borderColor: Colors.grey, lettersCollor: Colors.black),
+    BrazilPlateCategory.COMMERCIAL: PlateColorSet(backgroundColor: Colors.red[700]!, borderColor: Colors.red[900]!, lettersCollor: Colors.white),
+    BrazilPlateCategory.LEARNING: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.white, lettersCollor: Colors.red[700]!),
+    BrazilPlateCategory.SPECIAL: PlateColorSet(backgroundColor: Color(0xFF04AD62), borderColor: Color(0xFF04AD62), lettersCollor: Colors.white),
+    BrazilPlateCategory.DIPLOMATIC: PlateColorSet(backgroundColor: Color(0xFF006987), borderColor: Color(0xFF006987), lettersCollor: Colors.white),
+    BrazilPlateCategory.COLLECTION: PlateColorSet(backgroundColor: Colors.black, borderColor: Colors.black, lettersCollor: Colors.white),
+    BrazilPlateCategory.COLLECTION_BLACK: PlateColorSet(backgroundColor: Colors.black, borderColor: Colors.black, lettersCollor: Colors.white),
+    BrazilPlateCategory.OFFICIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.white, lettersCollor: Colors.black),
   };
 
   /// Evaluates the width value that will be used to draw the widget.
@@ -117,17 +117,11 @@ class ThreeLettersPlate extends StatelessWidget {
   /// If a value is provided for these two properties, then the original
   /// aspect ratio will not be take in account.
   /// If neither are provided, the value of _defaultWidth will be used.
-  const ThreeLettersPlate(this.plate,
-      {this.width,
-      this.height,
-      this.showLocality = true,
-      this.locality = 'BRASIL',
-      this.category = BrazilPlateCategory.PARTICULAR});
+  const ThreeLettersPlate(this.plate, {this.width, this.height, this.showLocality = true, this.locality = 'BRASIL', this.category = BrazilPlateCategory.PARTICULAR});
 
   @override
   Widget build(BuildContext context) {
-    return _externalWrapper(
-        child: _internalWrapper(child: _charactersContent()));
+    return _externalWrapper(child: _internalWrapper(child: _charactersContent()));
   }
 
   /// Draws the outer borders.
@@ -147,11 +141,7 @@ class ThreeLettersPlate extends StatelessWidget {
       ),
       width: realWidth,
       height: realHeight,
-      padding: EdgeInsets.fromLTRB(
-          realWidth * _leftBorderRelation,
-          realHeight * _verticalBorderRelation,
-          realWidth * _rightBorderRelation,
-          realHeight * _verticalBorderRelation),
+      padding: EdgeInsets.fromLTRB(realWidth * _leftBorderRelation, realHeight * _verticalBorderRelation, realWidth * _rightBorderRelation, realHeight * _verticalBorderRelation),
       child: _internalWrapper(child: _charactersContent()),
     );
   }
@@ -184,19 +174,7 @@ class ThreeLettersPlate extends StatelessWidget {
           child: Text(
             locality.toUpperCase(),
             textAlign: TextAlign.center,
-            style: TextStyle(
-                height: 1.4,
-                shadows: [
-                  Shadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 2 * (realWidth / 1000),
-                      offset: Offset(
-                          2 * (realWidth / 1000), 2 * (realWidth / 1000)))
-                ],
-                fontSize: realHeight * _localityContainerLettersRelation,
-                fontFamily: _fontFamily,
-                package: 'brazil_license_plate_drawing',
-                color: _colorSets[category]?.lettersCollor),
+            style: TextStyle(height: 1.4, shadows: [Shadow(color: Colors.black.withOpacity(0.5), blurRadius: 2 * (realWidth / 1000), offset: Offset(2 * (realWidth / 1000), 2 * (realWidth / 1000)))], fontSize: realHeight * _localityContainerLettersRelation, fontFamily: _fontFamily, package: 'brazil_license_plate_drawing', color: _colorSets[category]?.lettersCollor),
           )),
       SizedBox(
         height: realHeight * _lettersBorderTop,
@@ -223,13 +201,7 @@ class ThreeLettersPlate extends StatelessWidget {
               width: realHeight * _dotHeightRelation,
               height: realHeight * _dotHeightRelation,
               decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 2 * (realWidth / 1000),
-                      offset: Offset(
-                          2 * (realWidth / 1000), 2 * (realWidth / 1000)))
-                ],
+                boxShadow: [BoxShadow(color: Colors.black, blurRadius: 2 * (realWidth / 1000), offset: Offset(2 * (realWidth / 1000), 2 * (realWidth / 1000)))],
                 borderRadius: BorderRadius.circular(5 * (realWidth / 1000)),
                 color: _colorSets[category]?.lettersCollor,
               ),
@@ -248,19 +220,7 @@ class ThreeLettersPlate extends StatelessWidget {
   Text _getPlateChars(String chars, [double fontSize = 40]) {
     return Text(
       chars.toUpperCase(),
-      style: TextStyle(
-          height: 1.03,
-          fontSize: fontSize * 1.1,
-          letterSpacing: 4 * (fontSize / 98),
-          fontFamily: _fontFamily,
-          package: 'brazil_license_plate_drawing',
-          color: _colorSets[category]?.lettersCollor,
-          shadows: [
-            Shadow(
-                color: Colors.black.withOpacity(0.5),
-                blurRadius: 2 * (fontSize / 98),
-                offset: Offset(2 * (fontSize / 98), 2 * (fontSize / 98)))
-          ]),
+      style: TextStyle(height: 1.03, fontSize: fontSize * 1.1, letterSpacing: 4 * (fontSize / 98), fontFamily: _fontFamily, package: 'brazil_license_plate_drawing', color: _colorSets[category]?.lettersCollor, shadows: [Shadow(color: Colors.black.withOpacity(0.5), blurRadius: 2 * (fontSize / 98), offset: Offset(2 * (fontSize / 98), 2 * (fontSize / 98)))]),
       textAlign: TextAlign.center,
     );
   }
