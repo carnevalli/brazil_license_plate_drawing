@@ -225,7 +225,7 @@ class ThreeLettersPlate extends StatelessWidget {
     );
   }
 
-  bool isValid(String plate) {
+ static bool isValid(String plate) {
     RegExp oldPlate = RegExp(r'^[A-Z]{3}\-\d{4}$');
     return oldPlate.hasMatch(plate);
   }

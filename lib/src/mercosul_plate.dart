@@ -78,8 +78,8 @@ class MercosulPlate extends StatelessWidget {
     BrazilPlateCategory.LEARNING: PlateColorSet(backgroundColor: Colors.white, borderColor: Colors.red, lettersCollor: Colors.red),
     BrazilPlateCategory.SPECIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFF04AD62), lettersCollor:  Color(0xFF04AD62)),
     BrazilPlateCategory.DIPLOMATIC: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFFFF8308), lettersCollor:Color(0xFFFF8308)),
-    BrazilPlateCategory.COLLECTION: PlateColorSet(backgroundColor: Colors.black, borderColor: Colors.white, lettersCollor:Colors.white),
-    BrazilPlateCategory.COLLECTION_BLACK: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFFB4B4B4), lettersCollor:Color(0xFFB4B4B4)),
+    BrazilPlateCategory.COLLECTION_BLACK: PlateColorSet(backgroundColor: Colors.black, borderColor: Colors.white, lettersCollor:Colors.white),
+    BrazilPlateCategory.COLLECTION: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFFB4B4B4), lettersCollor:Color(0xFFB4B4B4)),
     BrazilPlateCategory.OFFICIAL: PlateColorSet(backgroundColor: Colors.white, borderColor: Color(0xFF01B4E0), lettersCollor:Color(0xFF01B4E0)),
   };
 
@@ -265,7 +265,7 @@ class MercosulPlate extends StatelessWidget {
     );
   }
 
- bool isValid(String plate) {
+ static bool isValid(String plate) {
     RegExp mercosulPlate = RegExp(r'^[A-Z]{3}[0-9][A-Z][0-9]{2}$');
     return mercosulPlate.hasMatch(plate);
   }
